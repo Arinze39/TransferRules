@@ -2,17 +2,36 @@ package com.example.arinze.transferrules;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.arinze.transferrules.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DashboardActivity extends AppCompatActivity {
+
+    private List<Wallets> User_Wallets;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        RecyclerView rv = (RecyclerView)findViewById(R.id.rv);
+
+        LinearLayoutManager llm = new LinearLayoutManager(getApplicationContext());
+        rv.setLayoutManager(llm);
+    }
+
+    private void InitializeData(){
+        User_Wallets = new ArrayList<>();
+        User_Wallets.add(new Wallets(1,"NGN",1234764,"253617","Arinze"));
+        User_Wallets.add(new Wallets(2,"NGN",1234764,"259978","George"));
+        User_Wallets.add(new Wallets(3,"USD",37482,"256473","Charles"));
     }
 
     @Override
